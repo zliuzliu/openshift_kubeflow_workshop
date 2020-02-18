@@ -31,7 +31,7 @@ RUN pip install \
         h5py \
         ipykernel \
         numpy \
-        tensorflow \
+        tensorflow==1.14 \
         tensorflow-serving-api \
         flask \
         && \
