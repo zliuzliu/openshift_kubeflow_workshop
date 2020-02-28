@@ -27,7 +27,7 @@ objects:
     runPolicy: Serial
     source:
       git:
-        uri: https://github.com/durandom/openshift_kubeflow_workshop.git
+        uri: https://github.com/zliuzliu/openshift_kubeflow_workshop.git
       type: Git
       contextDir: "containers/training/"
     strategy:
