@@ -29,7 +29,7 @@ objects:
       git:
         uri: https://github.com/zliuzliu/openshift_kubeflow_workshop.git
       type: Git
-      contextDir: "containers/training_gpu/"
+      contextDir: "containers/training-gpu/"
     strategy:
       type: Docker
 - kind: ImageStream
