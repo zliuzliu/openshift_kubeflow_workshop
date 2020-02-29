@@ -152,6 +152,8 @@ objects:
                 value: minio-service.kubeflow.svc:9000
               - name: TF_CPP_MIN_LOG_LEVEL
                 value: "1"
+              - name: CUDA_VISIBLE_DEVICES
+                value: "0"
               resources:
                 limits:
                   cpu: ${LIMIT_CPU}
