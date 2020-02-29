@@ -42,7 +42,11 @@ TF_LEARNING_RATE = float(os.getenv("TF_LEARNING_RATE", 0.01))
 N_DIGITS = 10  # Number of digits.
 X_FEATURE = 'x'  # Name of the input feature.
 
-
+# Resolve the issue: GPU core dump
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+config.log_device_placement = False
+sess = tf.Session(config=config)
 
 def conv_model(features, labels, mode):
   """2-layer convolution model."""
