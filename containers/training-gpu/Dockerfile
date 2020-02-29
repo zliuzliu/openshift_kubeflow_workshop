@@ -9,6 +9,7 @@ ENV PYTHONUNBUFFERED=0
 
 # run MNIST.py
 ADD model.py /home/tensorflow
+ADD model_old.py /home/tensorflow
 WORKDIR /home/tensorflow
 ENTRYPOINT /usr/bin/python /home/tensorflow/model.py
 #ENTRYPOINT /usr/local/bin/python /home/tensorflow/model.py
