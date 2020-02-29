@@ -44,7 +44,8 @@ X_FEATURE = 'x'  # Name of the input feature.
 
 # Resolve the issue: GPU core dump
 config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
+#config.gpu_options.allow_growth = True
+config.gpu_options.per_process_gpu_memory_fraction = 0.4
 config.log_device_placement = False
 sess = tf.Session(config=config)
 
