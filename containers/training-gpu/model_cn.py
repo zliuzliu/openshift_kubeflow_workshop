@@ -200,6 +200,10 @@ def main(_):
     print("No such model type: %s" % TF_MODEL_TYPE)
     sys.exit(1)
 
+    # TrainSpec类
+    # 定义在：tensorflow/python/estimator/training.py.  
+    # train_and_evaluate调用的“train”部分的配置.
+    # TrainSpec确定训练的输入数据以及持续时间.可选的钩子(hook)在不同训练阶段运行.
   train_spec = tf.estimator.TrainSpec(
         input_fn=train_input_fn, max_steps=TF_TRAIN_STEPS)
   eval_spec = tf.estimator.EvalSpec(input_fn=test_input_fn,
