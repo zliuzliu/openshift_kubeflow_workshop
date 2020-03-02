@@ -104,6 +104,7 @@ def conv_model(features, labels, mode):
                                                            "classes": classes})})
 
   # Compute loss.
+  # 损失函数是表示神经网络性能的“恶劣程度”的指标，即当前的神经网络对监督数据在多大程度上不拟合，在多大程度上不一致。
   loss = tf.losses.sparse_softmax_cross_entropy(labels=labels, logits=logits)
 
   # Create training op.
