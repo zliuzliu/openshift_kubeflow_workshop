@@ -210,6 +210,7 @@ def main(_):
   train_spec = tf.estimator.TrainSpec(
         input_fn=train_input_fn, max_steps=TF_TRAIN_STEPS)
 
+    # eval_spec 参数
     # input_fn： 参数用来指定数据输入。
     # steps： 用来指定评估的迭代步数，如果为None，则在整个数据集上评估。
     # name：如果要在多个数据集上进行评估，通过 name 参数可以保证不同数据集上的评估日志保存在不同的文件夹中，从而区分不同数据集上的评估日志。不同的评估日志保存在独立的文件夹中，在 TensorBoard 中从而独立的展现。
