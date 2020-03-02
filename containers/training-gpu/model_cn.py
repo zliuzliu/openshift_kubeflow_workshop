@@ -220,5 +220,6 @@ def main(_):
     classifier.export_savedmodel(TF_EXPORT_DIR, serving_input_receiver_fn=serving_fn)
     print("Done exporting the model")
 
+# 表示当前文件在shell下执行，而不是作为模块导入。
 if __name__ == '__main__':
   tf.app.run()
