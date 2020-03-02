@@ -204,8 +204,19 @@ def main(_):
     # 定义在：tensorflow/python/estimator/training.py.  
     # train_and_evaluate调用的“train”部分的配置.
     # TrainSpec确定训练的输入数据以及持续时间.可选的钩子(hook)在不同训练阶段运行.
+    # input_fn： 参数用来指定数据输入。
+    # max_steps： 参数用来指定训练的最大步数，这是训练的唯一终止条件。
+    # hooks： 参数用来挂一些 tf.train.SessionRunHook，用来在 session 运行的时候做一些额外的操作，比如记录一些 TensorBoard 日志什么的。
   train_spec = tf.estimator.TrainSpec(
         input_fn=train_input_fn, max_steps=TF_TRAIN_STEPS)
+
+    # input_fn： 参数用来指定数据输入。
+    # steps： 用来指定评估的迭代步数，如果为None，则在整个数据集上评估。
+    # name：如果要在多个数据集上进行评估，通过 name 参数可以保证不同数据集上的评估日志保存在不同的文件夹中，从而区分不同数据集上的评估日志。不同的评估日志保存在独立的文件夹中，在 TensorBoard 中从而独立的展现。
+    # hooks：参数用来挂一些 tf.train.SessionRunHook，用来在 session 运行的时候做一些额外的操作，比如记录一些 TensorBoard 日志什么的。
+    # exporters：一个 tf.estimator.export 模块中的类的实例。
+    # start_delay_secs：调用 train_and_evaluate 函数后，多少秒之后开始评估。第一次评估发生在 start_delay_secs + throttle_secs 秒后。
+    # throttle_secs：多少秒后又开始评估，如果没有新的 checkpoints 产生，则不评估，所以这个间隔是最小值。
   eval_spec = tf.estimator.EvalSpec(input_fn=test_input_fn,
                                       steps=1,
                                       exporters=export_final,
